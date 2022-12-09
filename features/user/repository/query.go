@@ -19,7 +19,7 @@ func New(db *gorm.DB) user.RepositoryInterface {
 
 func (repo *userRepository) GetAll() ([]user.Core, error) {
 	var user []User
-	tx := repo.db.Find(&user)
+	tx := repo.db.Preload("Book").Find(&user)
 	if tx.Error != nil {
 		return nil, tx.Error
 	}

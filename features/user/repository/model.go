@@ -14,8 +14,22 @@ type User struct {
 	Telp_number string `gorm:"type:varchar(15)"`
 	Address     string
 	Role        string
-	// Books    []Book
+	// Book        []BookForMapping
 }
+
+type UserForMapping struct {
+	Name    string
+	Email   string
+	Address string
+	Role    string
+}
+
+// type BookForMapping struct {
+// 	Title       string
+// 	Publisher   string
+// 	Author      string
+// 	PublishYear string
+// }
 
 func fromCore(dataCore _user.Core) User {
 	userGorm := User{
@@ -52,12 +66,12 @@ func toCoreList(models []User) []_user.Core {
 	return userCore
 }
 
-func toModelList(core []_user.Core) []User {
-	var model []User
-	for _, v := range core {
-		model = append(model, fromCore(v))
+// func toModelList(core []_user.Core) []User {
+// 	var model []User
+// 	for _, v := range core {
+// 		model = append(model, fromCore(v))
 
-	}
-	return model
+// 	}
+// 	return model
 
-}
+// }

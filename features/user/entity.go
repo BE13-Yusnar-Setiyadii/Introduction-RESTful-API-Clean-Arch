@@ -14,7 +14,22 @@ type Core struct {
 	Role        string `validate:"required"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
+	// Book        []BookCoreForMapping
 }
+
+type CoreForMapping struct {
+	Name    string
+	Email   string
+	Address string
+	Role    string
+}
+
+// type BookCoreForMapping struct {
+// 	Title       string
+// 	Publisher   string
+// 	Author      string
+// 	PublishYear string
+// }
 
 type ServiceInterface interface {
 	GetAll() (data []Core, err error)
